@@ -1,0 +1,32 @@
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: flickr-api-service
+# spec:
+#   type: "LoadBalancer"
+#   ports:
+#   - port: 8088 # the port that this service should serve on
+#     # the container on each pod to connect to, can be a name
+#     # (e.g. 'www') or a number (e.g. 80)
+#     nodePort: 30061
+#     protocol: TCP
+#   # just like the selector in the deployment,
+#   # but this time it identifies the set of pods to load balance
+#   # traffic to.
+#   selector:
+#     app: flickr-api
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: stupid-server
+  labels:
+    app: stupid-server
+spec:
+  selector:
+    app: stupid-server
+  ports:
+  - port: 8088
+    protocol: TCP
+    nodePort: 30061
+  type: LoadBalancer
