@@ -13,3 +13,5 @@ By default, minikube binds to port 192.168.99.100. To double check this, you can
 To access your service, simply curl the IP on port 30061:
 
 curl http://192.168.99.100:30061/api/images?q=cascais
+
+Note, the first time you build it, it can take some time before hte app is available. Probably because it needs to pull the container images and start them.

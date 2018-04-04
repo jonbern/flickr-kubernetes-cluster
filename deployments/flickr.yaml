@@ -24,3 +24,28 @@ spec:
             value: "8088"
           - name: API_KEY
             value: "b09fb8d8f7679bc3c876a5de2cb3f35c"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flickr-frontend-deployment
+spec:
+  selector:
+    matchLabels:
+      app: flickr-frontend
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: flickr-frontend
+    spec:
+      containers:
+      - name: flickr-frontend
+        image: jonbern/flickr-frontend
+        ports:
+          - containerPort: 8088
+        env:
+          - name: PORT
+            value: "8080"
+          - name: API_BASE_URL
+            value: "http://localhost:8088/api"
