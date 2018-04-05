@@ -43,9 +43,11 @@ spec:
       - name: flickr-frontend
         image: jonbern/flickr-frontend
         ports:
-          - containerPort: 8088
+          - containerPort: 8080
         env:
           - name: PORT
             value: "8080"
+            # IMPORTANT: Run minikube ip and make sure this config matches your minikube IP
+            # Also, I'm not sure how this will work outside minikube hosting. Probably need to refernece the external IP of the cluster instead.
           - name: API_BASE_URL
-            value: "http://localhost:8088/api"
+            value: "192.168.99.100:30061/api" 

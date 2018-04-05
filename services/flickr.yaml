@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: flickr-api-service
 spec:
-  type: "LoadBalancer"
+  type: "NodePort"
   ports:
   - port: 8088 # the port that this service should serve on
     # the container on each pod to connect to, can be a name
@@ -15,3 +15,16 @@ spec:
   # traffic to.
   selector:
     app: flickr-api
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flickr-frontend-service
+spec:
+  type: "LoadBalancer"
+  ports:
+  - port: 8080
+    nodePort: 30062
+    protocol: TCP
+  selector:
+    app: flickr-frontend
