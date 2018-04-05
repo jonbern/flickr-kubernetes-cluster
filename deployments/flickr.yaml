@@ -6,11 +6,9 @@ spec:
   selector:
     matchLabels:
       app: flickr-api
-  replicas: 2 # tells deployment to run 2 pods matching the template
-  template: # create pods using pod definition in this template
+  replicas: 2
+  template:
     metadata:
-      # unlike pod-nginx.yaml, the name is not included in the meta data as a unique name is
-      # generated from the deployment name
       labels:
         app: flickr-api
     spec:
@@ -47,7 +45,7 @@ spec:
         env:
           - name: PORT
             value: "8080"
-            # IMPORTANT: Run minikube ip and make sure this config matches your minikube IP
+            # IMPORTANT! Run minikube ip and make sure this config matches your minikube IP
             # Also, I'm not sure how this will work outside minikube hosting. Probably need to refernece the external IP of the cluster instead.
           - name: API_BASE_URL
             value: "192.168.99.100:30061/api" 

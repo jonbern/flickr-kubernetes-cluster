@@ -5,14 +5,9 @@ metadata:
 spec:
   type: "NodePort"
   ports:
-  - port: 8088 # the port that this service should serve on
-    # the container on each pod to connect to, can be a name
-    # (e.g. 'www') or a number (e.g. 80)
+  - port: 8088
     nodePort: 30061
     protocol: TCP
-  # just like the selector in the deployment,
-  # but this time it identifies the set of pods to load balance
-  # traffic to.
   selector:
     app: flickr-api
 ---

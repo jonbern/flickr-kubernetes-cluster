@@ -1,8 +1,8 @@
 # Simple node Express.js API via Kubernetes
 
 Created based on:
-https://kubernetes.io/docs/user-guide/walkthrough/k8s201/
-https://seanmcgary.com/posts/how-to-deploy-a-nodejs-app-to-kubernetes/
+- https://kubernetes.io/docs/user-guide/walkthrough/k8s201/
+- https://seanmcgary.com/posts/how-to-deploy-a-nodejs-app-to-kubernetes/
 
 ## Create Kubernetes deployments and services
 Run `./recreate.sh`
