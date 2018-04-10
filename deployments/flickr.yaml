@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: flickr-api-deployment
@@ -15,6 +15,7 @@ spec:
       containers:
       - name: flickr-api
         image: jonbern/flickr-api:latest
+        imagePullPolicy: Always
         ports:
           - containerPort: 8088
         env:
@@ -23,7 +24,7 @@ spec:
           - name: API_KEY
             value: "b09fb8d8f7679bc3c876a5de2cb3f35c"
 ---
-apiVersion: apps/v1
+apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: flickr-frontend-deployment
@@ -40,6 +41,7 @@ spec:
       containers:
       - name: flickr-frontend
         image: jonbern/flickr-frontend
+        imagePullPolicy: Always
         ports:
           - containerPort: 8080
         env:

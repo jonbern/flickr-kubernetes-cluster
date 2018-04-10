@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: flickr-api-service
 spec:
-  type: "NodePort"
+  type: "LoadBalancer"
   ports:
   - port: 8088
     nodePort: 30061
