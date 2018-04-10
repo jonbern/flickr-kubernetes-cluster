@@ -1,0 +1,25 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: flickr-api-deployment
+spec:
+  selector:
+    matchLabels:
+      app: flickr-api
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: flickr-api
+    spec:
+      containers:
+      - name: flickr-api
+        image: jonbern/flickr-api:latest
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 8088
+        env:
+          - name: PORT
+            value: "8088"
+          - name: API_KEY
+            value: "b09fb8d8f7679bc3c876a5de2cb3f35c"

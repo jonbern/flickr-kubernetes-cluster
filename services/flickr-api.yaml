@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flickr-api-service
+spec:
+  type: "LoadBalancer"
+  ports:
+  - port: 8088
+    nodePort: 30061
+    protocol: TCP
+  selector:
+    app: flickr-api
