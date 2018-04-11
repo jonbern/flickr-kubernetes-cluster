@@ -17,11 +17,9 @@ spec:
         image: jonbern/flickr-frontend
         imagePullPolicy: Always
         ports:
-          - containerPort: 8080
+          - containerPort: 80
         env:
           - name: PORT
-            value: "8080"
-            # IMPORTANT! Run minikube ip and make sure this config matches your minikube IP
-            # Also, I'm not sure how this will work outside minikube hosting. Probably need to refernece the external IP of the cluster instead.
+            value: "80"
           - name: API_BASE_URL
-            value: "http://afcdd7a9d3cc811e8a53c02731388617-71369210.us-east-2.elb.amazonaws.com:8088/api" 
+            value: "http://ada05fdc93d7d11e8859f02cf1950a80-1294775301.us-east-2.elb.amazonaws.com/api" 
