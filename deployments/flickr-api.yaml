@@ -17,9 +17,9 @@ spec:
         image: jonbern/flickr-api:latest
         imagePullPolicy: Always
         ports:
-          - containerPort: 8088
+          - containerPort: 80
         env:
           - name: PORT
-            value: "8088"
+            value: "80"
           - name: API_KEY
             value: "b09fb8d8f7679bc3c876a5de2cb3f35c"
